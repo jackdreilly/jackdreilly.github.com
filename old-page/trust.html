@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+
+<!-- paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/ -->
+<!--[if lt IE 7]> <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang="en"> <![endif]-->
+<!--[if IE 7]>    <html class="no-js lt-ie9 lt-ie8" lang="en"> <![endif]-->
+<!--[if IE 8]>    <html class="no-js lt-ie9" lang="en"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
+<head>
+	<meta charset="utf-8" />
+
+	<!-- Set the viewport width to device width for mobile -->
+	<meta name="viewport" content="width=device-width" />
+
+	<title>Creative Currency: Trust Score</title>
+
+	<!-- Included CSS Files -->
+	<link rel="stylesheet" href="style/force.css">
+	<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+</head>
+<body>
+
+	<div class="accordion" id="trust-accordion">
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#trust-accordion" href="#collapseOne">
+					Year 1
+				</a>
+			</div>
+			<div id="collapseOne" class="accordion-body in collapse" style="height: auto; ">
+				<div class="accordion-inner">
+					<p>
+						The social network is very sparse, and not much information has been understood about who is in the network. All networks must start somehwere!
+						<ul>
+							<b>
+								<li>
+									All loanee scores are equal
+								</li>
+								<li>
+									Both successful and unsuccessful loanees remain in the system and can endorse others.
+								</li>
+							</b>
+						</ul>
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#trust-accordion" href="#collapseTwo">
+					Year 2
+				</a>
+			</div>
+			<div id="collapseTwo" class="accordion-body collapse" style="height: 0px; ">
+				<div class="accordion-inner">
+					<p>
+						While it will take some time to create an fully efficient referral system, the algorithms set up encourage taking loans from trustworthy endorsers. This further introduces trustworthiness into the network while reward those with successful endorsements.
+						<ul>
+							<b>
+								<li>
+									Some nodes have larger loanee scores based on back-propogation algorithm that rewards successful endoresments.
+								</li>
+							</b>
+						</ul>
+
+					</p>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#trust-accordion" href="#collapseThree">
+					Year 3
+				</a>
+			</div>
+			<div id="collapseThree" class="accordion-body collapse" style="height: 0px; ">
+				<div class="accordion-inner">
+					<p>
+						The network has very few unsuccessful endoresments, yet those with poor credit scores are still being given loans from good endoresments. The network is beginning to grow much more rapidly, as there are more referral nodes.
+					</p>
+					<ul>
+						<b>
+							<li>Central nodes are growing very fast</li>
+							<li>Successful nodes are clustering around other successful nodes</li>
+							<li>Unsuccessful nodes have limited endoresement power and exist on the "fringes" of the network</li>
+						</b>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="accordion-group">
+			<div class="accordion-heading">
+				<a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#trust-accordion" href="#collapseThree">
+					Year 4
+				</a>
+			</div>
+			<div id="collapseFour" class="accordion-body collapse" style="height: 0px; ">
+				<div class="accordion-inner">
+					Dominant endorsers are becoming obvious and should be upgraded to a "trusted" partner. The number of loans increases as well as the success rate. There is now a complete referral system that curated a successful user base!
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div id="year-buttons">
+		<div class="btn-group" data-toggle="buttons-radio">
+			<button id="year1-button"  data-toggle="collapse" data-parent="#trust-accordion" href="#collapseOne" type="button" class="btn accordion-toggle">Year 1</button>
+			<button id="year2-button"  data-toggle="collapse" data-parent="#trust-accordion" href="#collapseTwo" type="button" class="btn accordion-toggle">Year 2</button>
+			<button id="year3-button"  data-toggle="collapse" data-parent="#trust-accordion" href="#collapseThree" type="button" class="btn accordion-toggle">Year 3</button>
+			<button id="year4-button"  data-toggle="collapse" data-parent="#trust-accordion" href="#collapseFour" type="button" class="btn accordion-toggle">Year 4</button>
+		</div>
+	</div>
+
+	<div id="tabContent">
+		<div id="contentHolder">
+		</div>
+	</div>
+
+	<ul class="tabContainer">
+		<!-- The jQuery generated tabs go here -->
+	</ul>
+
+	<!-- Included JS Files -->
+	<script src="lib/jquery.js"></script>
+	<script src="bootstrap/js/bootstrap.js"></script>
+	<script src="lib/d3.force.js"></script>
+	<script src="lib/d3.geom.js"></script>
+	<script src="lib/d3.layout.js"></script>
+	<script src="js/trust.js"></script>
+
+</body>
+</html>

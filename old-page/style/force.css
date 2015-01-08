@@ -1,0 +1,21 @@
+circle.node {
+  stroke: #fff;
+  stroke-width: 1.5px;
+}
+
+line.link {
+  stroke: #999;
+  stroke-opacity: .6;
+}
+
+
+.accordion {
+  width: 400px;
+  float: left;
+}
+
+#tabContent {
+  width: 400px;
+  height: 400px;
+  vertical-align: top;
+}

@@ -1,0 +1,94 @@
+
+#masthead {
+  margin: 0;
+  padding: 0 0 0px 0;
+  height: 17em;
+  background: url(../img/masthead.png);
+  /*
+  border-bottom: #222 10px solid;
+  */
+}
+
+#masthead h1 { text-indent: -3000px; }
+
+.socialicon {
+  float: right;
+  margin: 0 60px 0 0;
+  width: 50px;
+  height: 50px;
+}
+
+#featured {
+  background: url(../img/cool-background.png);
+}
+
+#me {
+  width: 275px;
+  float: left;
+  margin-right: 20px;
+  border-radius: 15px;
+}
+
+
+div.sociallinks a img.socialicon { margin: 60px 0 0 8px; }
+div.sociallinks a { border:none; }
+
+#aboutme {
+  margin-top: 20px;
+}
+
+#publications ol {
+  list-style-type: none;
+}
+
+.reflink {
+  color: darkBlue;
+}
+
+#scenicgps .carousel {
+  width: 300px;
+}
+
+#nash-stackelberg .carousel {
+  width: 400px;
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#nash-paragraph {
+}
+
+#ishake-carousel {
+  width: 200px;
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#ishake-carousel img {
+  width: 200px;
+}
+
+#cache-carousel, #convex-carousel, #clearsky-carousel {
+  width: 400px;
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#cache-carousel img, #convex-carousel img, #clearsky-carousel img  {
+  width: 400px;
+}
+
+
+
+#buildit-youtube {
+  float: right;
+  margin-left: 10px;
+  margin-bottom: 10px;
+}
+
+#trust-table {
+  vertical-align: top;
+}

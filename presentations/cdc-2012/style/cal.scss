@@ -1,0 +1,233 @@
+$bg1-color: #FAF9DE;
+$bg1-color: #E0DE92;
+$bg1-color: #CCCBB5;
+$bg2-color: #CCCBB5;
+$header-color: #092F59;
+$eqn-color: #F2F3FA;
+
+@import url(http://fonts.googleapis.com/css?family=Quattrocento:400,700);
+
+@mixin border-radius($r) {
+  -webkit-border-radius:$r;
+  -moz-border-radius:$r;
+  border-radius:$r;
+}
+
+@mixin rotate($deg) {
+  -webkit-transform:rotate($deg);
+  -moz-transform:rotate($deg);
+  -ms-transform:rotate($deg);
+  -o-transform:rotate($deg);
+  transform:rotate($deg);
+}
+
+@mixin box-shadow($x, $y, $blur, $color) {
+  -webkit-box-shadow:$x $y $blur $color;
+  -moz-box-shadow:$x $y $blur $color;
+  box-shadow:$x $y $blur $color;
+}
+
+@mixin linear-gradient($c1, $c2) {
+  background: $c1;
+  background: -webkit-linear-gradient(top,  $c1 0%,$c2 100%); /* W3C */
+  background: linear-gradient(top,  $c1 0%,$c2 100%); /* W3C */
+  background-attachment: fixed;
+}
+
+@mixin sweet-box($background-color) {
+  border-color:#cde;
+  background: $background-color;
+  position:relative;
+  z-index:auto;
+
+  .borderradius & {
+    @include border-radius(5px);
+  }
+
+  /* http://nicolasgallagher.com/css-drop-shadows-without-images/ */
+  .csstransforms.boxshadow & {
+    > :first-child:before {
+      content:"";
+      position:absolute;
+      z-index:-1;
+      background:#fff;
+      top:0;
+      bottom:0;
+      left:0;
+      right:0;
+    }
+
+    &:before, &:after {
+      content:"";
+      position:absolute;
+      z-index:-2;
+      bottom:15px;
+      width:50%;
+      height:20%;
+      max-width:300px;
+      @include box-shadow(0, 15px, 10px, rgba(0, 0, 0, 0.7));
+    }
+
+    &:before {
+      left:10px;
+      @include rotate(-3deg);
+    }
+
+    &:after {
+      right:10px;
+      @include rotate(3deg);
+    }
+  }
+}
+
+
+.deck-container {
+
+  @include linear-gradient($bg1-color, $bg2-color);
+
+  > .slide {
+    .deck-before, .deck-previous {
+      // opacity:0.4;
+
+      &:not(.deck-child-current) {
+        .deck-before, .deck-previous {
+          opacity:1;
+        }
+      }
+    }
+
+    .deck-child-current {
+      opacity:1;
+    }
+  }
+
+  .slide {
+
+    h1, h2 {
+      color:$header-color;
+    }
+
+    h3 {
+      color:#000;
+    }
+
+    pre {
+      @include sweet-box(white);
+    }
+
+    .equation, .note {
+      // font-style: italic;
+      font-family: Quattrocento serif;
+      background: $eqn-color;
+      list-style-type: none;
+      padding: 10px;
+      margin-left: auto;
+      margin-right: auto;
+      display: table;
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      box-shadow: 3px 3px 3px rgba(.5,.5,.5,.2);
+      font-size: 30px;
+
+      .header {
+        border: 1px rgba(.3,.3,.3,.3) inset;
+        font-style: normal;
+        background: white;
+        margin: 0px 10px 10px 10px;
+        border-radius: inherit;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        font-size: 40px;
+      }
+    }
+
+    .note {
+      background: #B3F5DF;
+    }
+
+    code {
+      color:#789;
+    }
+
+    blockquote {
+      font-family: "Hoefler Text", Constantia, Palatino, "Palatino Linotype", "Book Antiqua", Georgia, serif;
+      font-size:2em;
+      padding:1em 2em .5em 2em;
+      color:#000;
+      background:#fff;
+      position:relative;
+      border:1px solid #cde;
+      z-index:auto;
+
+      .borderradius & {
+        @include border-radius(5px);
+      }
+
+      .boxshadow & {
+        > :first-child:before {
+          content:"";
+          position:absolute;
+          z-index:-1;
+          background:#fff;
+          top:0;
+          bottom:0;
+          left:0;
+          right:0;
+        }
+
+        &:after {
+          content:"";
+          position:absolute;
+          z-index:-2;
+          top: 10px;
+          bottom: 10px;
+          left: 0;
+          right: 50%;
+          -moz-border-radius: 10px / 100px;
+          border-radius: 10px / 100px;
+          @include box-shadow(0, 0, 15px, rgba(0,0,0,0.6));
+        }
+      }
+
+      p {
+        margin:0;
+      }
+
+      cite {
+        font-size:.5em;
+        font-style:normal;
+        font-weight:bold;
+        color:#888;
+      }
+
+      &:before {
+        content:"“";
+        position:absolute;
+        top:0;
+        left:0;
+        font-size:5em;
+        line-height:1;
+        color:#ccf0f0;
+        z-index:1;
+      }
+    }
+
+    ::-moz-selection{ background:#08455f; color:#fff; }
+    ::selection { background:#08455f; color:#fff; }
+
+    a {
+      &, &:hover, &:focus, &:active, &:visited {
+        color:#599;
+        text-decoration:none;
+      }
+
+      &:hover, &:focus {
+        text-decoration:underline;
+      }
+    }
+  }
+}
+
+

@@ -1,0 +1,116 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Style-Type" content="text/css" />
+  <meta name="generator" content="pandoc" />
+  <title></title>
+  <style type="text/css">code{white-space: pre;}</style>
+  <link rel="stylesheet" href="github.css" type="text/css" />
+</head>
+<body>
+<div id="TOC">
+<ul>
+<li><a href="#synthetic-network-simulations-with-noise">Synthetic Network Simulations with Noise</a><ul>
+<li><a href="#jack-reilly">Jack Reilly</a></li>
+<li><a href="#network">Network</a></li>
+<li><a href="#simulation-environment">Simulation environment</a></li>
+<li><a href="#noise">Noise</a></li>
+<li><a href="#results">Results</a><ul>
+<li><a href="#summary">Summary</a></li>
+<li><a href="#no-control">No Control</a></li>
+<li><a href="#no-noise">No Noise</a></li>
+<li><a href="#noise-1">5 % Noise</a></li>
+<li><a href="#noise-2">20 % Noise</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</div>
+<h1 id="synthetic-network-simulations-with-noise"><a href="#synthetic-network-simulations-with-noise">Synthetic Network Simulations with Noise</a></h1>
+<h2 id="jack-reilly"><a href="#jack-reilly">Jack Reilly</a></h2>
+<h2 id="network"><a href="#network">Network</a></h2>
+<ul>
+<li>Synthetic freeway network</li>
+<li>Fundamental diagrams have ~ 60 mph free flow, 60 mph congestion speed, 1 veh/ second capacity.</li>
+<li>12 links (~ 6 miles)</li>
+<li>120 timesteps (~ one hour)</li>
+<li>3 onramps</li>
+<li>One demand “impulse” per onramp at different times</li>
+<li>Total travel time units in vehicle minutes.</li>
+<li>Density units in vehicles / mile.</li>
+<li>Queue units in vehicles.</li>
+</ul>
+<h2 id="simulation-environment"><a href="#simulation-environment">Simulation environment</a></h2>
+<ul>
+<li>Beats was used as the “real world”, and was responsible for keeping track of real state, forward dynamics, and dispatching control</li>
+<li>Different control schemes were tried
+<ul>
+<li>No control</li>
+<li>Adjoint</li>
+<li>At regular update periods, Beats passes estimated current densities, boundary fluxes, and split ratios to the adjoint controller to make policies</li>
+<li>Alinea</li>
+<li>Every timestep, Beats updates Alinea with estimated current densities and model parameters.</li>
+</ul></li>
+<li>Control schemes may be passed perfect information on model/initial conditions/ boundary conditions, or noisy estimates (artificial noise added by Beats).</li>
+</ul>
+<h2 id="noise"><a href="#noise">Noise</a></h2>
+<p>Noise was modeled by taking the true state (as seen by Beats), and perturbing the state as passed to the control schemes (both Adjoint and Alinea). If noise was “x %”, then the value v’ as seen by a control scheme is: v’ = v * (1 + 2 * x / 100 * (rand(0,1) - .5)) where v is the true value.</p>
+<ul>
+<li>Initial condition noise
+<ul>
+<li>changes initial densities and queue lengths</li>
+<li>affects both adjoint and alinea</li>
+</ul></li>
+<li>Model noise
+<ul>
+<li>changes fundamental diagram properties and max ramp flux rates</li>
+<li>affects both adjoint and alinea</li>
+</ul></li>
+<li>Boundary condition noise
+<ul>
+<li>changes the split ratios and onramp influxes for all time steps</li>
+<li>Only affects adjoint.</li>
+</ul></li>
+</ul>
+<h2 id="results"><a href="#results">Results</a></h2>
+<h3 id="summary"><a href="#summary">Summary</a></h3>
+<div class="figure">
+<img src="summary.png" title="Summary" alt="Summary" /><p class="caption">Summary</p>
+</div>
+<ul>
+<li>Adjoint and Alinea show robustness to noise, even to extreme noise levels (20%)</li>
+<li>Slight degradation in performance for noise levels at 5%</li>
+<li>Adjoint and Alinea seemed to be roughly on par for this synthetic network, for all noise levels considered.</li>
+<li>Results with real data on a real network may prove to be more enlightening, but these preliminary results show both controllers to be rather robust to model/data noise.</li>
+</ul>
+<h3 id="no-control"><a href="#no-control">No Control</a></h3>
+<p><img src="nca.png" title="No control mainline" alt="No control mainline" /> <img src="ncb.png" title="No control queue" alt="No control queues" /></p>
+<h3 id="no-noise"><a href="#no-noise">No Noise</a></h3>
+<ul>
+<li>Adjoint</li>
+</ul>
+<p><img src="nonoisea.png" title="mainline" alt="mainline" /> <img src="nonoiseb.png" title="queue" alt="queues" /></p>
+<ul>
+<li>Alinea</li>
+</ul>
+<p><img src="nonoisec.png" title="mainline" alt="mainline" /> <img src="nonoised.png" title="queue" alt="queues" /></p>
+<h3 id="noise-1"><a href="#noise-1">5 % Noise</a></h3>
+<ul>
+<li>Adjoint</li>
+</ul>
+<p><img src="fivepercenta.png" title="mainline" alt="mainline" /> <img src="fivepercentb.png" title="queue" alt="queues" /></p>
+<ul>
+<li>Alinea</li>
+</ul>
+<p><img src="fivepercentc.png" title="mainline" alt="mainline" /> <img src="fivepercentd.png" title="queue" alt="queues" /></p>
+<h3 id="noise-2"><a href="#noise-2">20 % Noise</a></h3>
+<ul>
+<li>Adjoint</li>
+</ul>
+<p><img src="twentypercenta.png" title="mainline" alt="mainline" /> <img src="twentypercentb.png" title="queue" alt="queues" /></p>
+<ul>
+<li>Alinea</li>
+</ul>
+<p><img src="twentypercentc.png" title="mainline" alt="mainline" /> <img src="twentypercentd.png" title="queue" alt="queues" /></p>
+</body>
+</html>

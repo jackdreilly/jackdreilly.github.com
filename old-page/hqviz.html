@@ -1,0 +1,62 @@
+<html>
+<head>
+  <script src="lib/jquery.js" type="text/javascript"></script>
+  <script src="lib/d3.js" type="text/javascript"></script>
+  <script src="js/app.js" type="text/javascript"></script>
+  <link rel="stylesheet" type="text/css" href="style/bootstrap.css" />
+  <link rel="stylesheet" type="text/css" href="style/app.css" />
+</head>
+<body>
+  <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="brand" href="./index.html">HQ Nash Demonstration</a>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="row-fluid">
+      <div class="span1">
+        <div class="btn-grp btn-grp-vertical" id="controls">
+          <button class="btn btn-large btn-primary" id="demo">Start</button>
+          <button class="btn btn-large btn-danger" id="reset">Reset</button>
+        </div>
+        <section id="meter-section">
+        </section>
+      </div>
+      <div class="well well-small span5">
+        <section id="network-section">
+          <h2>Network</h2>
+          <svg id="network-svg" class="chart">
+            <defs>
+              <linearGradient id = "meter-container-gradient" x1 = "0%" y1 = "0%" x2 = "100%" y2 = "100%">
+                <stop stop-color = "gray" offset = "0%"/>
+                <stop stop-color = "black" offset = "100%"/>
+              </linearGradient>
+              <linearGradient id = "meter-gradient" x1 = "0%" y1 = "0%" x2 = "100%" y2 = "100%">
+                <stop stop-color = "gray" offset = "0%"/>
+                <stop stop-color = "#d53533" offset = "100%"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </section>
+      </div>
+      <div class="well well-small span5">
+        <section id="plot-section">
+          <h2>Latencies</h2>
+        </section>
+      </div>
+    </div>
+    <div class="row-fluid">
+      <section class="well well-big" id="information">
+        <h2>Status: <span class="lead" id="status"></span></h2>
+        <div id="status-info">
+        </div>
+      </section>
+    </div>
+  </div>
+  <footer>
+    Jack Reilly: <i>(my first name)</i> d <i>(my last name)</i> at berkeley dot edu
+  </footer>
+</body>
+</html>
