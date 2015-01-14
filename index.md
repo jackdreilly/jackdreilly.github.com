@@ -38,6 +38,8 @@ My contact is `<`firstname`>` d `<`lastname`>` at gmail dot com.
 
 * **Cyber-security of Freeway Traffic Control Systems**, US-Korea Conference, August 2014, San Francisco, California. [pdf](presentations/ukc-2014.pdf)
 
+* **Analyzing Traffic Control System Compromises: Coordinated Ramp Metering Attacks**, TRB, January 2015, Washington DC. [poster](presentation/trb-2015.pdf)
+
 ## Awards
 
 * **2014 Milton Pikarsky Award for Outstanding PhD Dissertation in Science and Technology**, Council of Universities Transportation Center, Washington DC.
