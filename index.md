@@ -38,7 +38,7 @@ My contact is `<`firstname`>` d `<`lastname`>` at gmail dot com.
 
 * **Cyber-security of Freeway Traffic Control Systems**, US-Korea Conference, August 2014, San Francisco, California. [pdf](presentations/ukc-2014.pdf)
 
-* **Analyzing Traffic Control System Compromises: Coordinated Ramp Metering Attacks**, TRB, January 2015, Washington DC. [poster](presentation/trb-2015.pdf)
+* **Analyzing Traffic Control System Compromises: Coordinated Ramp Metering Attacks**, TRB, January 2015, Washington DC. [poster](presentations/trb-2015.pdf)
 
 ## Awards
 
